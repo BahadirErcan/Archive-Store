@@ -89,12 +89,10 @@
 
 -dontwarn okio.**
 -keep class com.google.**
--dontwarn com.google.**
--keep class com.google.gson.Gson {*;}
 
 # Keep data classes
--keep class com.aurora.store.data.room.favourite.ImportExport { *; }
--keep class com.aurora.store.data.room.favourite.Favourite { *; }
+-keep class com.archive.store.data.room.favourite.ImportExport { *; }
+-keep class com.archive.store.data.room.favourite.Favourite { *; }
 
 # With R8 full mode, it sees no subtypes of Retrofit interfaces since they are created with a Proxy
 # and replaces all potential values with null. Explicitly keeping the interfaces prevents this.
@@ -102,8 +100,6 @@
 -keep,allowobfuscation interface <1>
 
 -keepclassmembers enum * { *; }
--keep class  com.aurora.store.view.ui.preferences.**
--dontwarn  com.aurora.store.view.ui.preferences.**
 
 -keepclassmembers class * {
     private <fields>;
@@ -114,22 +110,11 @@
   *;
 }
 
--keep,allowobfuscation,allowshrinking class com.google.gson.reflect.TypeToken
--keep,allowobfuscation,allowshrinking class * extends com.google.gson.reflect.TypeToken
-
 # Keep Parcelable classes
 -keep @kotlinx.parcelize.Parcelize public class *
 
-# Keep the view binding classes and their methods
--keepclassmembers class ** implements androidx.viewbinding.ViewBinding {
-    public static *** inflate(...);
-}
-
 # Keep generic superclass information
 -keepattributes Signature
--keep class * extends androidx.viewbinding.ViewBinding {
-    *;
-}
 
 # Keep Huawei specific classes and methods
 -keep class com.huawei.** { *; }

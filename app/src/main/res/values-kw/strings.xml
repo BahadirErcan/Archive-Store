@@ -11,21 +11,21 @@
     <string name="about_bitcoin_eth">Ethereum</string>
     <string name="about_bitcoin_eth_summary">Argevri dres Ethereum (ETH)</string>
     <string name="about_fdroid">F-Droid</string>
-    <string name="about_fdroid_summary">Kavos Aurora Store dres F-Droid.</string>
+    <string name="about_fdroid_summary">Kavos Archive Store dres F-Droid.</string>
     <string name="about_gitlab">GitLab</string>
-    <string name="about_gitlab_summary">Kavos an kod Aurora Store a-dhia Aurora OSS war GitLab.</string>
+    <string name="about_gitlab_summary">Kavos an kod Archive Store a-dhia Archive OSS war GitLab.</string>
     <string name="about_libera">Liberapay</string>
     <string name="about_libera_summary">Bos unn tasek war Liberapay</string>
     <string name="about_paypal">PayPal</string>
     <string name="about_paypal_summary">Argevri dres PayPal</string>
     <string name="about_telegram">Telegram</string>
-    <string name="about_telegram_summary">Omjunya an bagas Aurora Support rag omgussulyansow po profyansow.</string>
+    <string name="about_telegram_summary">Omjunya an bagas Archive Support rag omgussulyansow po profyansow.</string>
     <string name="about_xda">XDA Forums</string>
-    <string name="about_xda_summary">Gweles an neusen XDA Aurora Store rag omgussulyansow po profansyow.</string>
+    <string name="about_xda_summary">Gweles an neusen XDA Archive Store rag omgussulyansow po profansyow.</string>
     <string name="account_anonymous">Dihanow</string>
     <string name="account_google">Google</string>
     <string name="account_login_using">Omgelmi ow devnydhya</string>
-    <string name="account_logout">Omdhigelmi a-dhia Aurora</string>
+    <string name="account_logout">Omdhigelmi a-dhia Archive</string>
     <string name="action_back">War Gamm</string>
     <string name="action_blacklist">Rol-Du</string>
     <string name="action_blacklist_add">Addya dhe rol-du</string>
@@ -148,7 +148,7 @@
     <string name="installer_am_unavailable">Lea Dyghtyer App po chanjya an leyer.</string>
     <string name="installer_root_unavailable">Hedhas gwreythen vyth. Grontya yth po chanjya an leyer.</string>
     <string name="installer_shizuku_unavailable">Shizuku na leys po selys yn da.</string>
-    <string name="installer_service_available">Gonisyow Aurora yw kavadow ha kysi rag leyans.</string>
-    <string name="installer_service_unavailable">Lea Gonisyow Aurora 1.0.9 po moy, po chanjya an leyer.</string>
-    <string name="installer_service_misconfigured">Selya Gonisyow Aurora ha grontya oll grontys kynsa.</string>
+    <string name="installer_service_available">Gonisyow Archive yw kavadow ha kysi rag leyans.</string>
+    <string name="installer_service_unavailable">Lea Gonisyow Archive 1.0.9 po moy, po chanjya an leyer.</string>
+    <string name="installer_service_misconfigured">Selya Gonisyow Archive ha grontya oll grontys kynsa.</string>
 </resources>

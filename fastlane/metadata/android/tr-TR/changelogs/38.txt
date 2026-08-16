@@ -1,2 +1,2 @@
-• Aurora hizmetleri kurulumu düzeltildi
+• Archive hizmetleri kurulumu düzeltildi
 • Çeviriler güncellendi

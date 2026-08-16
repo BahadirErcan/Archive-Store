@@ -1,0 +1,254 @@
+/*
+ * Archive Store
+ *  Copyright (C) 2021, Rahul Kumar Patel <whyorean@gmail.com>
+ *
+ *  Archive Store is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Archive Store is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Archive Store.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+package com.archive.store.viewmodel.auth
+
+import android.content.Context
+import android.util.Log
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.archive.Constants
+import com.archive.extensions.TAG
+import com.archive.store.ArchiveApp
+import com.archive.store.R
+import com.archive.store.data.event.AuthEvent
+import com.archive.store.data.model.AccountType
+import com.archive.store.data.model.AuthState
+import com.archive.store.data.providers.AccountProvider
+import com.archive.store.data.providers.AuthProvider
+import com.archive.store.util.AC2DMTask
+import com.archive.store.util.PackageUtil
+import com.archive.store.util.Preferences
+import com.aurora.gplayapi.data.models.AuthData
+import com.aurora.gplayapi.helpers.AuthHelper
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
+import java.net.ConnectException
+import java.net.UnknownHostException
+import javax.inject.Inject
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+
+@HiltViewModel
+class AuthViewModel @Inject constructor(
+    val authProvider: AuthProvider,
+    @ApplicationContext private val context: Context,
+    private val aC2DMTask: AC2DMTask
+) : ViewModel() {
+
+    private val _authState: MutableStateFlow<AuthState> = MutableStateFlow(AuthState.Init)
+    val authState = _authState.asStateFlow()
+
+    /** Emits the outcome of adding a Google account (non-default) so the caller can navigate back. */
+    private val _accountAdded = MutableSharedFlow<Boolean>()
+    val accountAdded = _accountAdded.asSharedFlow()
+
+    init {
+        updateAuthState()
+    }
+
+    fun buildGoogleAuthData(email: String, token: String, tokenType: AuthHelper.Token) {
+        _authState.value = AuthState.Fetching
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                verifyAndSaveAuth(
+                    authProvider.buildGoogleAuthData(email, token, tokenType).getOrThrow(),
+                    AccountType.GOOGLE
+                )
+            } catch (exception: Exception) {
+                _authState.value =
+                    AuthState.Failed(context.getString(R.string.failed_to_generate_session))
+                Log.e(TAG, "Failed to generate Session", exception)
+            }
+        }
+    }
+
+    /**
+     * Adds a Google account WITHOUT changing the active default (used by the account screen's
+     * "add account" flow). Does not touch [authState], so the current session/UI is unaffected.
+     * Re-syncs the prefs to the real default afterwards, because the AC2DM step
+     * ([buildAuthData]) writes the new account's e-mail/token into the legacy prefs mid-flow.
+     */
+    fun addGoogleAuthData(email: String, token: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val added = runCatching {
+                val authData = authProvider
+                    .buildGoogleAuthData(email, token, AuthHelper.Token.AAS)
+                    .getOrThrow()
+                require(authData.authToken.isNotEmpty() && authData.deviceConfigToken.isNotEmpty())
+                authProvider.persistAccount(
+                    authData = authData,
+                    accountType = AccountType.GOOGLE,
+                    authViaMicroG = false,
+                    makeDefault = false
+                )
+            }.isSuccess
+            authProvider.syncDefaultToPrefs()
+            _accountAdded.emit(added)
+        }
+    }
+
+    fun buildAnonymousAuthData() {
+        _authState.value = AuthState.Fetching
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                verifyAndSaveAuth(
+                    authProvider.buildAnonymousAuthData().getOrThrow(),
+                    AccountType.ANONYMOUS
+                )
+            } catch (exception: Exception) {
+                Log.e(TAG, "Failed to generate Session", exception)
+                val message = when (exception) {
+                    is UnknownHostException -> context.getString(R.string.check_connectivity)
+                    else -> exception.message.toString()
+                }
+
+                _authState.value = AuthState.Failed(message)
+            }
+        }
+    }
+
+    fun buildAuthData(context: Context, email: String, oauthToken: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val response = aC2DMTask.getAC2DMResponse(email, oauthToken)
+                if (response.isNotEmpty()) {
+                    val aasToken = response["Token"]
+                    if (aasToken != null) {
+                        val accountEmail = response["Email"]?.takeIf { it.isNotBlank() } ?: email
+                        Preferences.putString(context, Constants.ACCOUNT_EMAIL_PLAIN, accountEmail)
+                        Preferences.putString(context, Constants.ACCOUNT_AAS_PLAIN, aasToken)
+                        ArchiveApp.events.send(
+                            AuthEvent.GoogleLogin(true, accountEmail, aasToken)
+                        )
+                    } else {
+                        Preferences.putString(context, Constants.ACCOUNT_EMAIL_PLAIN, "")
+                        Preferences.putString(context, Constants.ACCOUNT_AAS_PLAIN, "")
+                        ArchiveApp.events.send(AuthEvent.GoogleLogin(false, "", ""))
+                    }
+                } else {
+                    ArchiveApp.events.send(AuthEvent.GoogleLogin(false, "", ""))
+                }
+            } catch (exception: Exception) {
+                Log.e(TAG, "Failed to build AuthData", exception)
+                ArchiveApp.events.send(AuthEvent.GoogleLogin(false, "", ""))
+            }
+        }
+    }
+
+    fun retry() = updateAuthState()
+
+    private fun updateAuthState() {
+        if (_authState.value != AuthState.Fetching) {
+            if (AccountProvider.isLoggedIn(context)) {
+                _authState.value = AuthState.Available
+                buildSavedAuthData()
+            } else {
+                _authState.value = AuthState.Unavailable
+            }
+        }
+    }
+
+    private fun buildSavedAuthData() = viewModelScope.launch(Dispatchers.IO) {
+        try {
+            if (authProvider.isSavedAuthDataValid()) {
+                _authState.value = AuthState.Valid
+            } else {
+                // Generate and validate new auth
+                when (AccountProvider.getAccountType(context)) {
+                    AccountType.ANONYMOUS -> buildAnonymousAuthData()
+
+                    AccountType.GOOGLE -> {
+                        val email = AccountProvider.getLoginEmail(context)
+                        val tokenPair = AccountProvider.getLoginToken(context)
+
+                        if (email == null || tokenPair == null) {
+                            throw Exception()
+                        }
+
+                        when (tokenPair.second) {
+                            AuthHelper.Token.AAS -> {
+                                buildGoogleAuthData(email, tokenPair.first, AuthHelper.Token.AAS)
+                            }
+
+                            AuthHelper.Token.AUTH -> {
+                                _authState.value =
+                                    AuthState.PendingAccountManager(email, tokenPair.first)
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (exception: Exception) {
+            val error = when (exception) {
+                is UnknownHostException -> context.getString(R.string.title_no_network)
+                is ConnectException -> context.getString(R.string.server_unreachable)
+                else -> context.getString(R.string.bad_request)
+            }
+            _authState.value = AuthState.Failed(error)
+        }
+    }
+
+    private suspend fun verifyAndSaveAuth(authData: AuthData, accountType: AccountType) {
+        _authState.value = AuthState.Verifying
+        if (authData.authToken.isNotEmpty() && authData.deviceConfigToken.isNotEmpty()) {
+            authProvider.saveAuthData(authData)
+            val tokenType =
+                if (authData.aasToken.isBlank()) AuthHelper.Token.AUTH else AuthHelper.Token.AAS
+            AccountProvider.login(
+                context,
+                authData.email,
+                authData.aasToken.ifBlank {
+                    authData.authToken
+                },
+                tokenType,
+                accountType
+            )
+            // Record whether this Google session relies on microG's AccountManager so we
+            // can warn the user if microG is later uninstalled.
+            Preferences.putBoolean(
+                context,
+                Preferences.PREFERENCE_AUTH_VIA_MICROG,
+                accountType == AccountType.GOOGLE &&
+                    tokenType == AuthHelper.Token.AUTH &&
+                    PackageUtil.hasSupportedMicroGVariant(context)
+            )
+            authProvider.persistAccount(
+                authData = authData,
+                accountType = accountType,
+                authViaMicroG = Preferences.getBoolean(
+                    context,
+                    Preferences.PREFERENCE_AUTH_VIA_MICROG,
+                    false
+                ),
+                makeDefault = true
+            )
+            _authState.value = AuthState.SignedIn
+        } else {
+            authProvider.removeAuthData(context)
+            authProvider.logout()
+            _authState.value =
+                AuthState.Failed(context.getString(R.string.failed_to_generate_session))
+        }
+    }
+}

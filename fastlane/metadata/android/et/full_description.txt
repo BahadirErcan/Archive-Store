@@ -1,4 +1,4 @@
-Aurora rakendustepood on ilusa kujundusega mitteametlik ja avatud lähtekoodiga Google Play klient. Siit saad laadida alla, uuendada ja otsida rakendust Play Store rakendustepoest. Toimib korralikult sõltumata sellest, kas Google Play teenused või microG on nutiseadmes olemas.
+Archive rakendustepood on ilusa kujundusega mitteametlik ja avatud lähtekoodiga Google Play klient. Siit saad laadida alla, uuendada ja otsida rakendust Play Store rakendustepoest. Toimib korralikult sõltumata sellest, kas Google Play teenused või microG on nutiseadmes olemas.
 
 <b>Funktsionaalsused:</b>
 

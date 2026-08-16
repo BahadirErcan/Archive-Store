@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2021-2025 Aurora OSS
+ * SPDX-FileCopyrightText: 2021-2025 Archive OSS
  * SPDX-FileCopyrightText: 2022-2025 The Calyx Institute
  * SPDX-FileCopyrightText: 2023 grrfe <grrfe@420blaze.it>
  * SPDX-License-Identifier: GPL-3.0-or-later

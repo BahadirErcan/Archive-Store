@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Aurora Store
+  ~ Archive Store
   ~  Copyright (C) 2021, Rahul Kumar Patel <whyorean@gmail.com>
   ~  Copyright (C) 2023, grrfe <grrfe@420blaze.it>
   ~
-  ~  Aurora Store is free software: you can redistribute it and/or modify
+  ~  Archive Store is free software: you can redistribute it and/or modify
   ~  it under the terms of the GNU General Public License as published by
   ~  the Free Software Foundation, either version 2 of the License, or
   ~  (at your option) any later version.
   ~
-  ~  Aurora Store is distributed in the hope that it will be useful,
+  ~  Archive Store is distributed in the hope that it will be useful,
   ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
   ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   ~  GNU General Public License for more details.
   ~
   ~  You should have received a copy of the GNU General Public License
-  ~  along with Aurora Store.  If not, see <http://www.gnu.org/licenses/>.
+  ~  along with Archive Store.  If not, see <http://www.gnu.org/licenses/>.
   ~
   -->
 
@@ -38,10 +38,10 @@
     <string-array name="link_urls">
         <item>https://auroraoss.com/</item>
         <item>https://gitlab.com/AuroraOSS/AuroraStore/-/wikis/home</item>
-        <item>"https://xdaforums.com/t/app-5-0-aurora-store-open-source-google-play-client.3739733/"</item>
+        <item>"https://xdaforums.com/t/app-5-0-archive-store-open-source-google-play-client.3739733/"</item>
         <item>"https://t.me/AuroraSupport"</item>
         <item>"https://gitlab.com/AuroraOSS/AuroraStore"</item>
-        <item>"https://f-droid.org/packages/com.aurora.store/"</item>
+        <item>"https://f-droid.org/packages/com.archive.store/"</item>
         <item>"bc1qu7cy9fepjj309y4r2x3rymve7mw4ff39c8cpe0"</item>
         <item>"qpqus3qdlz8guf476vwz0fjl8s34fseukcmrl6eknl"</item>
         <item>"0x6977446933EC8b5964D921f7377950992337B1C6"</item>
@@ -66,7 +66,7 @@
     </string-array>
 
     <string-array name="link_subtitle">
-        <item>@string/about_aurora_store_subtitle</item>
+        <item>@string/about_archive_store_subtitle</item>
         <item>@string/about_wiki_summary</item>
         <item>@string/about_xda_summary</item>
         <item>@string/about_telegram_summary</item>

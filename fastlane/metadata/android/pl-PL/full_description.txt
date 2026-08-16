@@ -1,4 +1,4 @@
-Aurora Store to nieoficjalny, FOSS klient Google Play o eleganckim wyglądzie. Aurora Store pozwala użytkownikom pobierać, aktualizować i wyszukiwać aplikacje, podobnie jak Play Store. Działa doskonale zarówno z Usługami Google Play lub microG, jak i bez nich.
+Archive Store to nieoficjalny, FOSS klient Google Play o eleganckim wyglądzie. Archive Store pozwala użytkownikom pobierać, aktualizować i wyszukiwać aplikacje, podobnie jak Play Store. Działa doskonale zarówno z Usługami Google Play lub microG, jak i bez nich.
 
 <b>Funkcje:</b>
 

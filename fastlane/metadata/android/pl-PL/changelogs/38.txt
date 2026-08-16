@@ -1,2 +1,2 @@
-• Naprawiono instalator Usług Aurora
+• Naprawiono instalator Usług Archive
 • Zaktualizowano tłumaczenia

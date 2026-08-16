@@ -50,7 +50,7 @@ kotlin {
 }
 
 configure<ApplicationExtension> {
-    namespace = "com.aurora.store"
+    namespace = "com.archive.store"
     compileSdk {
         version = release(37) {
             minorApiLevel = 0
@@ -58,7 +58,7 @@ configure<ApplicationExtension> {
     }
 
     defaultConfig {
-        applicationId = "com.aurora.store"
+        applicationId = "com.archive.store"
         minSdk {
             version = release(23)
         }
@@ -66,10 +66,10 @@ configure<ApplicationExtension> {
             version = release(37)
         }
 
-        versionCode = 76
-        versionName = "4.8.4"
+        versionCode = 1
+        versionName = "1.0.0"
 
-        testInstrumentationRunner = "com.aurora.store.HiltInstrumentationTestRunner"
+        testInstrumentationRunner = "com.archive.store.HiltInstrumentationTestRunner"
         testInstrumentationRunnerArguments["disableAnalytics"] = "true"
 
         buildConfigField("String", "EXODUS_API_KEY", "\"bbe6ebae4ad45a9cbacb17d69739799b8df2c7ae\"")
@@ -276,4 +276,11 @@ dependencies {
 
     // LeakCanary
     debugImplementation(libs.squareup.leakcanary.android)
+}
+android {
+    buildTypes {
+        getByName("release") {
+            signingConfig = signingConfigs.getByName("debug")
+        }
+    }
 }

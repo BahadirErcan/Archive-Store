@@ -1,5 +1,5 @@
 • Veľké interné zmeny v systéme sťahovania
- • Aurora obchod teraz vyžaduje nové povolenie na sťahovanie na pozadí
+ • Archive obchod teraz vyžaduje nové povolenie na sťahovanie na pozadí
  • Funkcie pozastavenia a obnovenia boli pre sťahovanie zastarané
  • Súbežné sťahovanie bolo zastarané (obmedzené na jedno sťahovanie naraz)
  • Automatické overenie SHA256 a SHA1 pre stiahnuté súbory
@@ -8,8 +8,8 @@
  • Nové automatické aktualizácie aplikácií (v predvolenom nastavení povolené)
  • Nové automatické overovanie aktualizácií certifikátov
  • Podpora aktualizácií s rotáciou podpisového kľúča (zavedené po Androide 9.0+)
- • Automatické aktualizácie (Aurora obchod) sú predvolene zakázané (povoliť v nastaveniach > aktualizácie)
-• Natívny inštalátor a Aurora služby boli zastarané
+ • Automatické aktualizácie (Archive obchod) sú predvolene zakázané (povoliť v nastaveniach > aktualizácie)
+• Natívny inštalátor a Archive služby boli zastarané
 • Export nainštalovaných aplikácií už nevyžaduje povolenia na ukladanie
 • Minimálna požadovaná verzia Androidu pre aplikácie je teraz viditeľná na stránke podrobností aplikácie (Viac o tejto aplikácii > Informácie)
 • Aktualizácie prekladov a opravy hlavných chýb

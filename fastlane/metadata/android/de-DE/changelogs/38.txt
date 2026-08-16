@@ -1,2 +1,2 @@
-• Die Installation der Aurora Services wurde korrigiert
+• Die Installation der Archive Services wurde korrigiert
 • Aktualisierte Übersetzungen

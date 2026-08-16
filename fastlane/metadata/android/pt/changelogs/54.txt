@@ -9,7 +9,7 @@
   • Nova verificação automática de certificados para atualizações
   • Suporte para atualizações com rotação da chave de assinatura (após o Android 9.0+)
   • As atualizações automáticas foram desativadas por predefinição (ativar em Definições > Atualizar)
-• O Instalador nativo e os Serviços Aurora foram descontinuados
+• O Instalador nativo e os Serviços Archive foram descontinuados
 • A exportação de aplicações instaladas já não requer permissão de armazenamento
 • Versão mínima necessária do Android para as aplicações é agora visível na página de detalhes da aplicação
 • Traduções e correções várias

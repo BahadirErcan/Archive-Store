@@ -110,7 +110,7 @@ Changelog : v4.5.0 (59)
 • Multiple UI/UX improvements and bug fixes
 • New automatic cache cleanup feature to remove old downloads
 • Accent color setting has been retired for Android 12+ devices
-• SessionInstaller: Ability to set Aurora Store as device owner using ADB (credits: @s1204IT)
+• SessionInstaller: Ability to set Archive Store as device owner using ADB (credits: @s1204IT)
 • SessionInstaller: Installation queue support
 
 Changelog : v4.4.4 (58)
@@ -141,7 +141,7 @@ Changelog : v4.4.1 (55)
 
 Changelog : v4.4.0 (54)
 • Major internal changes to the downloads system
-  • Aurora Store now requires new permission to download in the background
+  • Archive Store now requires new permission to download in the background
   • Pause and Resume features have been deprecated for downloads
   • Concurrent downloads have been deprecated (limited to one download at a time)
   • Automatic SHA256 & SHA1 verification for downloaded files
@@ -150,8 +150,8 @@ Changelog : v4.4.0 (54)
   • New automatic updates for apps (enabled by default)
   • New automatic certificate verification for updates
   • Support for updates with signing key rotation (introduced after Android 9.0+)
-  • Self-Updates (Aurora Store) has been disabled by default (enable in settings > update)
-• Native Installer and Aurora Services have been deprecated
+  • Self-Updates (Archive Store) has been disabled by default (enable in settings > update)
+• Native Installer and Archive Services have been deprecated
 • Exporting installed apps doesn't requires storage permissions anymore
 • The minimum required Android version for apps is now visible on the app details page (More about this app > Info)
 • Translation updates & major bug fixes
@@ -204,7 +204,7 @@ Changelog : v4.2.4 (46)
 • Reworked spoof configuration to avoid storage permission for import-export
 • Add option to automatically check for app updates (requires a working account logged in)
 • Fixed issue where required libraries weren't being installed with apps like chrome & trichrome library
-• Ignore downloads directory from backups when backing up Aurora Store
+• Ignore downloads directory from backups when backing up Archive Store
 • Implement Shizuku installer (requires Android 8.0+)
 • Drop support for Android 4.4. Minimum required Android version is 5.0+.
 • Minor bugfixes & improvements
@@ -250,7 +250,7 @@ Changelog : v4.1.0 (40)
 • Updated Translations
 
 Changelog : v4.0.7 (38)
-• Fixed Aurora Services install
+• Fixed Archive Services install
 • Updated Translations
 
 Changelog : v4.0.6 (37)
@@ -398,7 +398,7 @@ Changelog : v3.0.8
 Changelog : v3.0.7
 • Added option to use custom token dispensers (Settings->Network) 
 • Added new dummy accounts & dispenser
-• Added support for Aurora Services
+• Added support for Archive Services
 • Added option to view AppInfo from list menu
 • Zip the splits to backup bundled apps
 • Bug fixes & improvements

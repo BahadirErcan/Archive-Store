@@ -130,7 +130,7 @@
     <string name="about_bhim_summary">UPI මගින් පරිත්‍යාග</string>
     <string name="about_bitcoin_bch">බිට්කොයින් මුදල්</string>
     <string name="about_fdroid_summary">එෆ්-ඩ්‍රොයිඩ් හරහා අවුරෝරා ස්ටෝර් ගන්න.</string>
-    <string name="about_gitlab_summary">ගිට්ලැබ් හි Aurora OSS වෙතින් අවුරෝරා ස්ටෝර් ප්‍රභව කේතය ගන්න.</string>
+    <string name="about_gitlab_summary">ගිට්ලැබ් හි Archive OSS වෙතින් අවුරෝරා ස්ටෝර් ප්‍රභව කේතය ගන්න.</string>
     <string name="installer_root_unavailable">මූල ප්‍රවේශය නැත. එය පිරිනමන්න හෝ ස්ථාපකය වෙනස් කරන්න.</string>
     <string name="filter_review_positive">ධනාත්මක</string>
     <string name="tab_for_you">ඔබ සඳහා</string>
@@ -288,8 +288,8 @@
     <string name="add">එකතු</string>
     <string name="session_login">ඔබගේ ගූගල් ප්ලේ ගිණුමට පිවිසෙන්න</string>
     <string name="source_code_title">මූලාශ්‍ර කේතය</string>
-    <string name="about_aurora_store_title">අවුරෝරා ස්ටෝර් ගැන</string>
-    <string name="about_aurora_store_subtitle">අවුරෝරා ස්ටෝර් ගැන තව දැනගන්න</string>
+    <string name="about_archive_store_title">අවුරෝරා ස්ටෝර් ගැන</string>
+    <string name="about_archive_store_subtitle">අවුරෝරා ස්ටෝර් ගැන තව දැනගන්න</string>
     <string name="privacy_policy_title">රහස්‍යතා ප්‍රතිපත්තිය</string>
     <string name="add_dispenser_error">ඒ.ස.නි. වලංගු නොවේ</string>
     <string name="title_more">තවත්</string>

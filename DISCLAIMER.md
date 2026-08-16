@@ -2,7 +2,7 @@
 
 ### 1. Google Accounts.
 
-You hold yourself accountable if you are to use Aurora Store with your personal Google Account, which may cause your account to be blocked/blacklisted by Google.
+You hold yourself accountable if you are to use Archive Store with your personal Google Account, which may cause your account to be blocked/blacklisted by Google.
 
 As per Google Play's Terms Of Service §4 and §2:
 
@@ -25,18 +25,18 @@ As per Google Play's Terms Of Service §4 and §2:
 
 > **Disabled Accounts.** If Google disables access to your account in accordance with the Terms (for example if you materially or repeatedly violate the Terms), you may be prevented from accessing Google Play, your account details or any files or other Content that is stored with your account. See the Help Center for more information. If you are the family manager of a family on Google Play and Google disables access to your account, your family members may lose access to family features requiring a family group, such as a family payment method, family subscriptions, or Content shared by family members. If you are a family member of a family on Google Play and Google disables your account, your family members will lose access to Content you have shared with them.
 
-### 2. Installing **Aurora Store** from third-party sources.
+### 2. Installing **Archive Store** from third-party sources.
 
-You are to hold yourself responsible by installing **Aurora Store** from other sources other than our own, in which you do not blame us for malicious programs, device bricking or anything else.
+You are to hold yourself responsible by installing **Archive Store** from other sources other than our own, in which you do not blame us for malicious programs, device bricking or anything else.
 
 The following sources are the only official links we provide:
 
-- **F-Droid:** https://f-droid.org/packages/com.aurora.store/
+- **F-Droid:** https://f-droid.org/packages/com.archive.store/
 - **AuroraOSS Website:** https://auroraoss.com/downloads.php
 - **Official Telegram Channel:** https://t.me/AuroraOfficial
 - **GitLab:** https://gitlab.com/AuroraOSS/AuroraStore/-/releases
 
-### 3. Links in Aurora Store
+### 3. Links in Archive Store
 
 **AuroraOSS**, makes no claim or representation regarding, and accepts no responsibility for third party websites accessible by hyperlink from the Service or websites linking to the Service. When you leave the Service, you should be aware that these Terms and our policies no longer govern.
 
@@ -44,12 +44,12 @@ The only links we provide are:
 
 - **Donation links** Bitcoin, Bitcoin Cash, Etherum, BHIM-UPI, PayPal & Liberapay links
 - **Repository sources** GitLab repository link
-- **xda-developers** Aurora Store xda-developers thread
-- **Telegram** Aurora Support group link
-- **F-Droid** Aurora Store in F-Droid repository link
+- **xda-developers** Archive Store xda-developers thread
+- **Telegram** Archive Support group link
+- **F-Droid** Archive Store in F-Droid repository link
 
 ### 4. Content
 
-We do not own any content within **Aurora Store**, all available content i.e. applications, information and links are provided "as is" directly from Google Play repositories/servers.
+We do not own any content within **Archive Store**, all available content i.e. applications, information and links are provided "as is" directly from Google Play repositories/servers.
 
-For all content on **Aurora Store**, we don't review, verify or authenticate it, and it may include inaccuracies or false information. We make no representations, warranties, or guarantees relating to the quality, suitability, truth, accuracy or completeness of any content contained in the Service. You acknowledge sole responsibility for and assume all risk arising from your use of or reliance on any content.
+For all content on **Archive Store**, we don't review, verify or authenticate it, and it may include inaccuracies or false information. We make no representations, warranties, or guarantees relating to the quality, suitability, truth, accuracy or completeness of any content contained in the Service. You acknowledge sole responsibility for and assume all risk arising from your use of or reliance on any content.

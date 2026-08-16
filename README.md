@@ -1,17 +1,19 @@
-# Aurora Store
+# Archive Store
 
-Aurora Store enables you to search and download apps from the official Google Play store. You can check app descriptions, screenshots, updates, reviews, and download the APK directly from Google Play to your device. 
+Aurora Store Based App Store for ArchiveOS Android
 
-To use Aurora Store, log in using Google Play account, when you first open and configure Aurora Store.
+Archive Store enables you to search and download apps from the official Google Play store. You can check app descriptions, screenshots, updates, reviews, and download the APK directly from Google Play to your device. 
 
-Unlike a traditional app store, Aurora Store does not own, license or distribute any apps. All apps, app descriptions, screenshots and other content in Aurora Store are directly accessed, downloaded and/or displayed from Google Play. 
+To use Archive Store, log in using Google Play account, when you first open and configure Archive Store.
 
-Aurora Store works exactly like a door or a browser, allowing you to log in to your Google Play account and find the apps from Google Play. 
+Unlike a traditional app store, Archive Store does not own, license or distribute any apps. All apps, app descriptions, screenshots and other content in Archive Store are directly accessed, downloaded and/or displayed from Google Play. 
 
-*_Please note that Aurora Store does not have any approval, sponsorship or authorization from Google, Google Play, any apps downloaded through Aurora Store or any app developers; neither does Aurora Store have any affiliation, cooperation or connection with them._*
+Archive Store works exactly like a door or a browser, allowing you to log in to your Google Play account and find the apps from Google Play. 
 
-[<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="90">](https://f-droid.org/packages/com.aurora.store/)
-[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height="90">](https://apt.izzysoft.de/fdroid/index/apk/com.aurora.store)
+*_Please note that Archive Store does not have any approval, sponsorship or authorization from Google, Google Play, any apps downloaded through Archive Store or any app developers; neither does Archive Store have any affiliation, cooperation or connection with them._*
+
+[<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="90">](https://f-droid.org/packages/com.archive.store/)
+[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height="90">](https://apt.izzysoft.de/fdroid/index/apk/com.archive.store)
 
 ## Features
 
@@ -47,8 +49,8 @@ Please only download the latest stable releases from one of these sources:
 
 - [Official website](https://auroraoss.com/)
 - [GitLab Releases](https://gitlab.com/AuroraOSS/AuroraStore/-/releases)
-- [IzzyOnDroid](https://apt.izzysoft.de/fdroid/index/apk/com.aurora.store) (reproducible)
-- [F-Droid](https://f-droid.org/packages/com.aurora.store/) (signed by F-Droid, [more details](https://f-droid.org/docs/Signing_Process/))
+- [IzzyOnDroid](https://apt.izzysoft.de/fdroid/index/apk/com.archive.store) (reproducible)
+- [F-Droid](https://f-droid.org/packages/com.archive.store/) (signed by F-Droid, [more details](https://f-droid.org/docs/Signing_Process/))
 - [App Gallery](https://appgallery.huawei.com/app/C110907863) (limited to certain countries)
 
 You can also get latest debug builds signed with AOSP test keys for testing latest changes from our [GitLab Package Registry](https://gitlab.com/AuroraOSS/AuroraStore/-/packages/24103616).
@@ -60,11 +62,11 @@ You can also get latest debug builds signed with AOSP test keys for testing late
 
 ## Support
 
-Aurora Store v4 is still in on-going development! Bugs are to be expected! Any bug reports are appreciated.
-Please visit [Aurora Wiki](https://gitlab.com/AuroraOSS/AuroraStore/-/wikis/home) for FAQs.
+Archive Store v4 is still in on-going development! Bugs are to be expected! Any bug reports are appreciated.
+Please visit [Archive Wiki](https://gitlab.com/AuroraOSS/AuroraStore/-/wikis/home) for FAQs.
 
 - [Telegram](https://t.me/AuroraSupport)
-- [XDA Developers](https://forum.xda-developers.com/t/app-5-0-aurora-store-open-source-google-play-client.3739733/)
+- [XDA Developers](https://forum.xda-developers.com/t/app-5-0-archive-store-open-source-google-play-client.3739733/)
 
 ## Permissions
 
@@ -93,15 +95,15 @@ Please visit [Aurora Wiki](https://gitlab.com/AuroraOSS/AuroraStore/-/wikis/home
 
 ## Translations
 
-Don't see your preferred language? Click on the widget below to help translate Aurora Store!
+Don't see your preferred language? Click on the widget below to help translate Archive Store!
 
-<a href="https://hosted.weblate.org/engage/aurora-store/">
-  <img src="https://hosted.weblate.org/widgets/aurora-store/-/287x66-grey.png" alt="Translation status" />
+<a href="https://hosted.weblate.org/engage/archive-store/">
+  <img src="https://hosted.weblate.org/widgets/archive-store/-/287x66-grey.png" alt="Translation status" />
 </a>
 
 ## Donations
 
-You can support Aurora Store's development financially via options below. For more options, checkout the **About** page within the Aurora Store.
+You can support Archive Store's development financially via options below. For more options, checkout the **About** page within the Archive Store.
 
 [![Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/whyorean)
 <a href="https://www.paypal.com/paypalme/AuroraDev">
@@ -110,7 +112,7 @@ You can support Aurora Store's development financially via options below. For mo
 
 ## Project references
 
-Aurora Store is based on these projects
+Archive Store is based on these projects
 
 - [YalpStore](https://github.com/yeriomin/YalpStore)
 - [AppCrawler](https://github.com/Akdeniz/google-play-crawler)

@@ -1,4 +1,4 @@
-Obchod Aurora je neoficiální, svobodný a otevřený klient pro Google Play s elegantním designem. Obchod Aurora umožňuje uživatelům stahovat, aktualizovat a vyhledávat aplikace, stejně jako Obchod Play. Funguje bez problémů s i bez Služeb Google Play či microG.
+Obchod Archive je neoficiální, svobodný a otevřený klient pro Google Play s elegantním designem. Obchod Archive umožňuje uživatelům stahovat, aktualizovat a vyhledávat aplikace, stejně jako Obchod Play. Funguje bez problémů s i bez Služeb Google Play či microG.
 
 <b>Funkce:</b>
 

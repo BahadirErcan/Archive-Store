@@ -1,2 +1,2 @@
-• Fixed Aurora Services install
+• Fixed Archive Services install
 • Updated Translations
