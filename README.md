@@ -12,9 +12,6 @@ Archive Store works exactly like a door or a browser, allowing you to log in to 
 
 *_Please note that Archive Store does not have any approval, sponsorship or authorization from Google, Google Play, any apps downloaded through Archive Store or any app developers; neither does Archive Store have any affiliation, cooperation or connection with them._*
 
-[<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="90">](https://f-droid.org/packages/com.archive.store/)
-[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height="90">](https://apt.izzysoft.de/fdroid/index/apk/com.archive.store)
-
 ## Features
 
 - FOSS: Has GPLv3 licence
@@ -47,26 +44,7 @@ Archive Store works exactly like a door or a browser, allowing you to log in to 
 
 Please only download the latest stable releases from one of these sources:
 
-- [Official website](https://auroraoss.com/)
-- [GitLab Releases](https://gitlab.com/AuroraOSS/AuroraStore/-/releases)
-- [IzzyOnDroid](https://apt.izzysoft.de/fdroid/index/apk/com.archive.store) (reproducible)
-- [F-Droid](https://f-droid.org/packages/com.archive.store/) (signed by F-Droid, [more details](https://f-droid.org/docs/Signing_Process/))
-- [App Gallery](https://appgallery.huawei.com/app/C110907863) (limited to certain countries)
-
-You can also get latest debug builds signed with AOSP test keys for testing latest changes from our [GitLab Package Registry](https://gitlab.com/AuroraOSS/AuroraStore/-/packages/24103616).
-
-## Certificate Fingerprints
-
-- SHA1: 94:42:75:D7:59:8B:C0:3E:48:85:06:06:42:25:A7:19:90:A2:22:02
-- SHA256: 4C:62:61:57:AD:02:BD:A3:40:1A:72:63:55:5F:68:A7:96:63:FC:3E:13:A4:D4:36:9A:12:57:09:41:AA:28:0F
-
-## Support
-
-Archive Store v4 is still in on-going development! Bugs are to be expected! Any bug reports are appreciated.
-Please visit [Archive Wiki](https://gitlab.com/AuroraOSS/AuroraStore/-/wikis/home) for FAQs.
-
-- [Telegram](https://t.me/AuroraSupport)
-- [XDA Developers](https://forum.xda-developers.com/t/app-5-0-archive-store-open-source-google-play-client.3739733/)
+- [Releases](https://github.com/BahadirErcan/Archive-Store/releases/tag/Release)
 
 ## Permissions
 
@@ -101,20 +79,8 @@ Don't see your preferred language? Click on the widget below to help translate A
   <img src="https://hosted.weblate.org/widgets/archive-store/-/287x66-grey.png" alt="Translation status" />
 </a>
 
-## Donations
-
-You can support Archive Store's development financially via options below. For more options, checkout the **About** page within the Archive Store.
-
-[![Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/whyorean)
-<a href="https://www.paypal.com/paypalme/AuroraDev">
-  <img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg" height="45" alt="PayPal">
-</a>
-
 ## Project references
 
 Archive Store is based on these projects
 
-- [YalpStore](https://github.com/yeriomin/YalpStore)
-- [AppCrawler](https://github.com/Akdeniz/google-play-crawler)
-- [Raccoon](https://github.com/onyxbits/raccoon4)
-- [SAI](https://github.com/Aefyr/SAI)
+- [AuroraStore](https://github.com/whyorean/AuroraStore)
