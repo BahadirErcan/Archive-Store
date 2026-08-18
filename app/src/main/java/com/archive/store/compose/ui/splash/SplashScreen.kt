@@ -205,7 +205,7 @@ fun SplashScreen(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Image(
-                        painter = painterResource(R.drawable.ic_logo_alt),
+                        painter = painterResource(R.mipmap.ic_launcher_foreground),
                         contentDescription = null,
                         modifier = Modifier.size(dimensionResource(R.dimen.icon_size_splash)),
                         contentScale = ContentScale.FillBounds

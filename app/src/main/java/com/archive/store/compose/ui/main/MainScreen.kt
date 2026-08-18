@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Badge
@@ -32,6 +33,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
@@ -44,6 +46,7 @@ import com.archive.store.compose.composable.TrackerUpdateWarningDialog
 import com.archive.store.compose.composition.LocalNetworkStatus
 import com.archive.store.compose.navigation.Destination
 import com.archive.store.compose.ui.apps.AppsGamesScreen
+import com.archive.store.compose.ui.archiveapps.ArchiveAppsScreen
 import com.archive.store.compose.ui.commons.MoreSheet
 import com.archive.store.compose.ui.commons.NetworkScreen
 import com.archive.store.compose.ui.sheets.AppUpdateSheet
@@ -66,7 +69,8 @@ private enum class MainTab(
 ) {
     APPS(R.string.title_apps, R.drawable.ic_apps),
     GAMES(R.string.title_games, R.drawable.ic_games),
-    UPDATES(R.string.title_updates, R.drawable.ic_updates)
+    UPDATES(R.string.title_updates, R.drawable.ic_updates),
+    ARCHIVE_APPS(R.string.title_archive_apps, R.drawable.archiveappsicon)
 }
 
 @Composable
@@ -186,13 +190,19 @@ fun MainScreen(
                                 BadgedBox(badge = { Badge { Text("$updateCount") } }) {
                                     Icon(
                                         painter = painterResource(tab.iconRes),
-                                        contentDescription = null
+                                        contentDescription = null,
+                                        modifier = Modifier.size(
+                                            dimensionResource(R.dimen.icon_size_default)
+                                        )
                                     )
                                 }
                             } else {
                                 Icon(
                                     painter = painterResource(tab.iconRes),
-                                    contentDescription = null
+                                    contentDescription = null,
+                                    modifier = Modifier.size(
+                                        dimensionResource(R.dimen.icon_size_default)
+                                    )
                                 )
                             }
                         },
@@ -223,6 +233,7 @@ fun MainScreen(
                         pageType = 1,
                         onNavigateTo = ::handleNavigation
                     )
+                    MainTab.ARCHIVE_APPS -> ArchiveAppsScreen(onNavigateTo = onNavigateTo)
                     MainTab.UPDATES -> {
                         fun performUpdate(update: Update) {
                             if (update.fileList.requiresObbDir() &&

@@ -5,6 +5,7 @@
 
 package com.archive.store.compose.navigation
 
+import com.archive.store.data.model.ArchiveApp
 import com.archive.store.data.model.PermissionType
 import com.archive.store.data.room.update.Update
 import com.aurora.gplayapi.data.models.Category
@@ -19,6 +20,7 @@ sealed class Destination {
     data class Main(val initialTab: Int) : Destination()
 
     data class AppDetails(val packageName: String) : Destination()
+    data class ArchiveAppDetails(val app: ArchiveApp) : Destination()
     data class DevProfile(val devId: String) : Destination()
     data class AppUpdate(val update: Update) : Destination()
 

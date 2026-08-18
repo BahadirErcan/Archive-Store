@@ -7,6 +7,7 @@ package com.archive.store.compose.navigation
 
 import android.os.Parcelable
 import androidx.navigation3.runtime.NavKey
+import com.archive.store.data.model.ArchiveApp
 import com.archive.store.data.model.PermissionType
 import com.aurora.gplayapi.data.models.StreamCluster
 import kotlinx.parcelize.Parcelize
@@ -34,6 +35,9 @@ sealed class Screen : NavKey, Parcelable {
 
     @Serializable
     data class AppDetails(val packageName: String) : Screen()
+
+    @Serializable
+    data class ArchiveAppDetails(val app: ArchiveApp) : Screen()
 
     @Serializable
     data object Search : Screen()

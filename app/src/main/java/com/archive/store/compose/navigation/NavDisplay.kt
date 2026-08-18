@@ -38,6 +38,7 @@ import com.archive.store.R
 import com.archive.store.compose.ui.about.AboutScreen
 import com.archive.store.compose.ui.accounts.AccountsScreen
 import com.archive.store.compose.ui.accounts.GoogleLoginScreen
+import com.archive.store.compose.ui.archiveapps.ArchiveAppDetailsScreen
 import com.archive.store.compose.ui.blacklist.BlacklistScreen
 import com.archive.store.compose.ui.commons.CategoryBrowseScreen
 import com.archive.store.compose.ui.commons.ExpandedStreamBrowseScreen
@@ -182,6 +183,9 @@ fun NavDisplay(startDestination: NavKey) {
             )
 
             is Destination.AppDetails -> backstack.add(Screen.AppDetails(destination.packageName))
+            is Destination.ArchiveAppDetails -> backstack.add(
+                Screen.ArchiveAppDetails(destination.app)
+            )
             is Destination.DevProfile -> backstack.add(Screen.DevProfile(destination.devId))
             is Destination.AppUpdate -> Unit
             is Destination.StreamBrowse -> backstack.add(Screen.StreamBrowse(destination.cluster))
@@ -240,6 +244,10 @@ fun NavDisplay(startDestination: NavKey) {
                     packageName = screen.packageName,
                     onNavigateTo = ::navigate
                 )
+            }
+
+            entry<Screen.ArchiveAppDetails> { screen ->
+                ArchiveAppDetailsScreen(app = screen.app)
             }
 
             entry<Screen.DevProfile> { screen ->

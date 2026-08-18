@@ -38,6 +38,10 @@ object Constants {
 
     const val SHARE_URL = "https://play.google.com/store/apps/details?id="
 
+    // Archive Apps website hosting apps.json and the archived app assets. Served via
+    // npx serve behind a Cloudflare tunnel; URLs change per tunnel session.
+    const val URL_ARCHIVE_APPS = "https://florist-prep-provision-francis.trycloudflare.com"
+
     const val UPDATE_URL_VANILLA =
         "https://auroraoss.com/downloads/AuroraStore/Feeds/release_feed.json"
     const val UPDATE_URL_NIGHTLY =
