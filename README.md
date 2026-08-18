@@ -5,7 +5,7 @@ Aurora Store Based App Store for ArchiveOS Android
 Archive Store enables you to search and download apps from the official Google Play store. You can check app descriptions, screenshots, updates, reviews, and download the APK directly from Google Play to your device. 
 
 To use Archive Store, log in using Google Play account, when you first open and configure Archive Store.
-
+ 
 Unlike a traditional app store, Archive Store does not own, license or distribute any apps. All apps, app descriptions, screenshots and other content in Archive Store are directly accessed, downloaded and/or displayed from Google Play. 
 
 Archive Store works exactly like a door or a browser, allowing you to log in to your Google Play account and find the apps from Google Play. 
