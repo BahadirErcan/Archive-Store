@@ -42,11 +42,6 @@ object Constants {
     // npx serve behind a Cloudflare tunnel; URLs change per tunnel session.
     const val URL_ARCHIVE_APPS = "https://florist-prep-provision-francis.trycloudflare.com"
 
-    const val UPDATE_URL_VANILLA =
-        "https://auroraoss.com/downloads/AuroraStore/Feeds/release_feed.json"
-    const val UPDATE_URL_NIGHTLY =
-        "https://auroraoss.com/downloads/AuroraStore/Feeds/nightly_feed.json"
-
     // Channel IDs carry a version suffix where the importance changed from a previous
     // release: Android ignores importance edits on an already-created channel, so a new ID
     // is the only way to roll out a lower importance. Retired IDs are listed in

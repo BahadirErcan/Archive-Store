@@ -13,14 +13,14 @@ import com.archive.extensions.TAG
 import com.archive.extensions.isGrapheneOS
 import com.archive.extensions.isHyperOS
 import com.archive.extensions.isIgnoringBatteryOptimizations
-import com.archive.store.BuildConfig
 import com.archive.store.data.helper.DownloadHelper
 import com.archive.store.data.helper.UpdateHelper
 import com.archive.store.data.installer.AppInstaller
-import com.archive.store.data.model.BuildType
+import com.archive.store.data.model.ArchiveAppList
 import com.archive.store.data.model.SelfUpdate
 import com.archive.store.data.model.UpdateMode
 import com.archive.store.data.network.HttpClient
+import com.archive.store.data.network.resolveArchiveAsset
 import com.archive.store.data.providers.AccountProvider
 import com.archive.store.data.providers.AuthProvider
 import com.archive.store.data.providers.BlacklistProvider
@@ -37,6 +37,7 @@ import com.aurora.gplayapi.data.models.App
 import com.aurora.gplayapi.helpers.AppDetailsHelper
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
+import java.io.IOException
 import java.util.Locale
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -245,41 +246,59 @@ class UpdateWorker @AssistedInject constructor(
     }
 
     /**
-     * Fetches Archive Store's own update from the bundled release/nightly feed and maps
-     * it onto an [App] so it joins the regular update list. Nightly version codes never
-     * bump, so newness is decided by the build timestamp there; release uses the version
-     * code. Best-effort: any failure logs and yields no update.
+     * Fetches Archive Store's own update from the Archive Apps website (`apps.json`)
+     * and maps it onto an [App] so it joins the regular update list. An update is
+     * offered whenever the version listed on the site is newer than the installed one.
+     * Best-effort: any failure logs and yields no update.
      */
     private suspend fun getSelfUpdate(): App? = withContext(Dispatchers.IO) {
-        val updateUrl = when (BuildType.CURRENT) {
-            BuildType.RELEASE -> Constants.UPDATE_URL_VANILLA
-            BuildType.NIGHTLY -> Constants.UPDATE_URL_NIGHTLY
-            else -> {
-                Log.i(TAG, "Self-updates are not available for this build!")
+        try {
+            val response = httpClient.call("${Constants.URL_ARCHIVE_APPS}/apps.json")
+            val apps = response.use {
+                if (!it.isSuccessful) throw IOException("apps.json fetch failed: HTTP ${it.code}")
+                val body = it.body?.string() ?: throw IOException("Empty apps.json response")
+                json.decodeFromString<ArchiveAppList>(body).apps
+            }
+            val entry = apps.firstOrNull { it.packageName == context.packageName }
+                ?: return@withContext null
+
+            if (!entry.canDownload ||
+                entry.versionCode <= PackageUtil.getInstalledVersionCode(context, entry.packageName)
+            ) {
                 return@withContext null
             }
-        }
 
-        try {
-            val selfUpdate = httpClient.call(updateUrl).use {
-                json.decodeFromString<SelfUpdate>(it.body.string())
-            }
-
-            val isNewer = when (BuildType.CURRENT) {
-                BuildType.RELEASE -> selfUpdate.versionCode > BuildConfig.VERSION_CODE
-                BuildType.NIGHTLY -> selfUpdate.timestamp > BuildConfig.BUILD_TIMESTAMP
-                else -> false
-            }
-
-            if (isNewer && selfUpdate.downloadUrl.isNotBlank()) {
-                return@withContext selfUpdate.toApp(context)
-            }
+            return@withContext SelfUpdate(
+                versionName = entry.versionName,
+                versionCodeRaw = entry.versionCode.toString(),
+                downloadUrl = resolveArchiveAsset(entry.apk),
+                iconUrl = resolveArchiveAsset(entry.icon),
+                sha256 = entry.sha256,
+                changelog = fetchChangelog(entry.changelog),
+                sizeRaw = entry.size.toString(),
+                updatedOn = entry.updatedOn
+            ).toApp(context)
         } catch (exception: Exception) {
             Log.e(TAG, "Failed to check self-updates", exception)
         }
 
         Log.i(TAG, "No self-updates found!")
         return@withContext null
+    }
+
+    /**
+     * Fetches the changelog text for an archived app entry. Returns an empty string when
+     * the entry has no changelog or the fetch fails.
+     */
+    private suspend fun fetchChangelog(path: String): String {
+        if (path.isBlank()) return ""
+        return try {
+            val response = httpClient.call(resolveArchiveAsset(path))
+            response.use { if (it.isSuccessful) it.body?.string().orEmpty() else "" }
+        } catch (exception: Exception) {
+            Log.e(TAG, "Failed to fetch self-update changelog", exception)
+            ""
+        }
     }
 
     private fun notifyUpdates(updates: List<Update>) {

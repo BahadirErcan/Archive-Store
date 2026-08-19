@@ -62,7 +62,6 @@
     <string name="title_apps">Uygulamalar</string>
     <string name="title_account_manager">Hesaplar</string>
     <string name="title_about">Hakkında</string>
-    <string name="title_archive_apps">Arşiv Uygulamaları</string>
     <string name="archive_apps_error">Arşiv uygulamaları yüklenemedi</string>
     <string name="archive_apps_empty">Arşiv uygulaması bulunamadı</string>
     <string name="archive_download">İndir</string>

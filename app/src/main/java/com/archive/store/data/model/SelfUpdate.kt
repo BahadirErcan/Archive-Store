@@ -16,8 +16,9 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Self-update feed entry returned by `release_feed.json` (vanilla release) and
- * `nightly_feed.json` (nightly), both served from the Archive OSS server.
+ * Self-update entry derived from the Archive Apps website (`apps.json`) and mapped onto
+ * an [App] so it can flow through the regular update pipeline
+ * ([com.archive.store.data.room.update.Update.fromApp] → download → install).
  *
  * The producer encodes numeric fields as JSON strings, so the raw fields below stay
  * `String` and we expose typed `Long` accessors that tolerate blank values. Decoding
