@@ -48,9 +48,6 @@
 
     <dimen name="height_header">36dp</dimen>
     <dimen name="height_chip">52dp</dimen>
-    <dimen name="grid_min_width">152dp</dimen>
-    <dimen name="button_height_compact">40dp</dimen>
-    <dimen name="archive_screenshot_height">480dp</dimen>
     <dimen name="height_button">56dp</dimen>
     <dimen name="width_button">200dp</dimen>
     <dimen name="height_bottomsheet_button">52dp</dimen>

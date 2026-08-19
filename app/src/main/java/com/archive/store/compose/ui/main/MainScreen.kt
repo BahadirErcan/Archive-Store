@@ -233,7 +233,9 @@ fun MainScreen(
                         pageType = 1,
                         onNavigateTo = ::handleNavigation
                     )
-                    MainTab.ARCHIVE_APPS -> ArchiveAppsScreen(onNavigateTo = onNavigateTo)
+                    MainTab.ARCHIVE_APPS -> ArchiveAppsScreen(
+                        onNavigateTo = onNavigateTo
+                    )
                     MainTab.UPDATES -> {
                         fun performUpdate(update: Update) {
                             if (update.fileList.requiresObbDir() &&
