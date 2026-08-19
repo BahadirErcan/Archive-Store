@@ -66,8 +66,8 @@ configure<ApplicationExtension> {
             version = release(37)
         }
 
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 7
+        versionName = "1.1.0"
 
         testInstrumentationRunner = "com.archive.store.HiltInstrumentationTestRunner"
         testInstrumentationRunnerArguments["disableAnalytics"] = "true"
